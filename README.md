@@ -9,8 +9,7 @@ Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
   3. Ejecución
   4. Detención
   5. Publicar una imagen
-    - De un snapshot
-    - De un contenedor
+  6. Push/Pull de archivos
 2. Namespaces
 
 
@@ -60,6 +59,16 @@ lxc copy [container] [new-container]                            #Crear un conten
 lxc publish local:[new-container] local: --alias=[image-alias]  #Crear una imagen basado en el nuevo contenedor
 lxc image list #Verificar la creación de la imagen              #Verificar la creación de la imagen
 ```
+
+#### Push/Pull
+```
+lxc start [container]
+fpath='etc/hosts'                               
+lxc file pull [container]/${fpath} /tmp/                        #Obtiene /etc/hosts del contenedor y lo copia en /tmp/ del host
+tpath='tmp/'
+lxc file push /etc/hosts [container]/${tpath}                   #Envía el /etc/hosts del host al directorio /tmp/ del contenedor
+```
+- Solo funciona en contenedores en ejecución.
 
 ---
 
