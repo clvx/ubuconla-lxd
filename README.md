@@ -87,3 +87,42 @@ En el contenedor:
 Ambos contenedores tienen nombres diferentes.
 
 #### Network
+
+En el host:
+```
+/sbin/ip addr show              
+```
+- Muestra los dispositivos de red activos. lxcbr0 es el bridge en el network namespace del host donde se conectan todos los contenedores.
+- vethXXX se puede apreciar cuando hay un contenedor encendido. Es el punto conectado a lxcbr0, el otro punto se encuentra conectado en el contenedor.
+
+```
+/sbin/ip route show
+```
+- La tabla de enrutamiento del host.
+
+```
+/sbin/iptables -t nat -L POSTROUTING
+```
+- Enmascara toda la red interna del contenedor con la dirección de salida.
+
+```
+/bin/ss -tulnp
+```
+- Los sockets de tcp/udp activos en el host.
+
+
+En el container:
+```
+/usr/bin/lxc start [container]
+/usr/bin/lxc exec [container] /bin/bash
+    /sbin/ip addr show  
+    /sbin/ip route show
+    /bin/ss -tulnp
+```
+- ip addr muestra solo eth0. eth0 es la interface virtual del contenedor que se conecta a lxcbr0.
+- La tabla de enrutamiento difiere del host.
+- Los sockets tcp/udp activos del contenedor, ya que es un network namespace diferente se pueden crear sockets en puertos privilegiados.
+
+En general, cada network namespace provee toda una pila de red aislada.
+
+#### USER
