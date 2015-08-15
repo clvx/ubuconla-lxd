@@ -14,6 +14,10 @@ Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
   6. Push/Pull de archivos
   7. Renombrar
 2. Namespaces
+  1. Mount
+  2. PID
+  3. UTS
+  4. Network
 
 
 
