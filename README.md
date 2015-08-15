@@ -1,9 +1,22 @@
 # ubuconla-lxd
 Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
 
+## Indice
+
+1. LXD
+  1. Instalación
+  2. Creación
+  3. Ejecución
+  4. Detención
+  5. Publicar una imagen
+    1. De un snapshot
+    2. De un contenedor
+2. Namespaces
+
+
 
 ## LXD
-Para ejecutar estos ejemplos, desde Ubuntu Vivid(15.10):
+Para ejecutar estos ejemplos, desde Ubuntu Vivid(15.04):
 
 #### Instalación
 ```
@@ -15,17 +28,37 @@ apt update; apt install lxd
 ```
 lxc remote add lxc-img images.linuxcontainers.org
 lxc image copy lxc-img:/ubuntu/trusty/amd64 local: --alias=trusty-amd64
-lxc launch trusty-amd64 base
+lxc launch trusty-amd64 [container]
 ```
+- Se copia la imagen de trusty de la arquitectura amd64 al lxd server local en un alias denominado trusty-amd64
+- Esa imagen se utiliza con el comando launch para crear y ejecutar nuevos contenedores.
 
 #### Ejecución
 ```
-lxc start base
+lxc start [container]
 ```
 
 #### Detención
 ```
-lxc stop base
+lxc stop [container]
+```
+
+#### Publicar una imagen 
+
+###### De un snapshot
+```
+lxc snapshot [container] [snapshot-name]                        #Crear snapshot
+lxc copy [container]/[snapshot-name] [new-container]            #Crear un contenedor basado en el snapshot
+lxc publish local:[new-container] local: --alias=[image-alias]  #Crear una imagen basado en el nuevo contenedor
+lxc image list                                                  #Verificar la creación de la imagen
+```
+
+###### De un contenedor
+```
+lxc stop [container]                                            #El contenedor debe estar parado
+lxc copy [container] [new-container]                            #Crear un contenedor basado en otro contenedor
+lxc publish local:[new-container] local: --alias=[image-alias]  #Crear una imagen basado en el nuevo contenedor
+lxc image list #Verificar la creación de la imagen              #Verificar la creación de la imagen
 ```
 
 ---
