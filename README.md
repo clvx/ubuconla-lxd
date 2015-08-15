@@ -9,8 +9,8 @@ Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
   3. Ejecución
   4. Detención
   5. Publicar una imagen
-    1. De un snapshot
-    2. De un contenedor
+    - De un snapshot
+    - De un contenedor
 2. Namespaces
 
 
