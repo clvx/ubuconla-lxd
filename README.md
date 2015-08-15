@@ -13,8 +13,10 @@ Mount
   cd /tmp/
   /bin/mount -n -o size=1m -t tmpfs tmpfs `mktemp -d --tmpdir=/tmp`
 ```
+
 en el container:
 `/bin/cat /proc/self/mounts`
+
 en el host:
 `/bin/cat /proc/self/mounts`
 
