@@ -1,7 +1,7 @@
 # ubuconla-lxd
 Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
-Charla: https://www.youtube.com/watch?v=9sdSNcga2Uc
-Diapositivas: https://speakerdeck.com/clvx/lxd-internals
+- Charla: https://www.youtube.com/watch?v=9sdSNcga2Uc
+- Diapositivas: https://speakerdeck.com/clvx/lxd-internals
 
 ## Indice
 
