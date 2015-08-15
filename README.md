@@ -10,6 +10,7 @@ Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
   4. Detención
   5. Publicar una imagen
   6. Push/Pull de archivos
+  7. Renombrar
 2. Namespaces
 
 
@@ -69,6 +70,11 @@ tpath='tmp/'
 lxc file push /etc/hosts [container]/${tpath}                   #Envía el /etc/hosts del host al directorio /tmp/ del contenedor
 ```
 - Solo funciona en contenedores en ejecución.
+
+#### Renombrar
+```
+lxc move [container] [new-container-name]
+```
 
 ---
 
