@@ -1,11 +1,10 @@
 # ubuconla-lxd
 Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015
-
-Namespaces
 ---
 
-Mount
---
+## Namespaces
+
+### Mount
 
 ```
 /usr/bin/lxc start [container]
@@ -20,4 +19,5 @@ en el container:
 en el host:
 `/bin/cat /proc/self/mounts`
 
+### PID
 
