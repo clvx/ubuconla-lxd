@@ -1,5 +1,32 @@
 # ubuconla-lxd
-Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015
+Ejemplos de LXD de la charla LXD Internals del UbuCon LA 2015.
+
+
+## LXD
+Para ejecutar estos ejemplos, desde Ubuntu Vivid(15.10):
+
+### Instalación
+```
+add-apt-repository ppa:ubuntu-lxc/lxd-git-master
+apt update; apt install lxd
+```
+
+### Creación
+```
+lxc remote add lxc-img images.linuxcontainers.org
+lxc image copy lxc-img:/ubuntu/trusty/amd64 local: --alias=trusty-amd64
+lxc launch trusty-amd64 base
+```
+
+### Ejecución
+```
+lxc start base
+```
+
+### Detención
+```
+lxc stop base
+```
 
 ---
 
